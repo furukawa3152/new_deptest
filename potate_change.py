@@ -31,7 +31,7 @@ if __name__ == '__main__':
     """
     **~Let`s CHANGE POTATE-BOY!!!~**
     """
-    uploaded_file = st.file_uploader("ここから画像を入れてね！（縦撮影）", type=["png", "jpg"], accept_multiple_files=False)
+    uploaded_file = st.file_uploader("ここから誰かの写真を撮ってね！（縦撮影）", type=["png", "jpg"], accept_multiple_files=False)
     if uploaded_file is not None:
         image = Image.open(uploaded_file)
         image = np.array(image.convert("RGB"))
