@@ -8,9 +8,14 @@ def face_detect_MTCNN(img):
     b_img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     detect =MTCNN()
     faces =  detect.detect_faces(b_img)
+    list = [0,0,0,0,0,0,1]
     for i in range(len(faces)):
         (x,y,w,h) = faces[i]["box"]
-        persona = cv2.imread("potato_boypersona.jpg")
+        num = random.choice(list)
+        if num == 0:
+            persona = cv2.imread("potato_boypersona.jpg")
+        else:
+            persona = cv2.imread("koikeya.jpg")
         persona = cv2.resize(persona,(w,int(h*0.8)))
         persona = cv2.cvtColor(persona,cv2.COLOR_BGR2RGB)
         # img = cv2.rectangle(img,(x,y),(x+w,y+h),(255,0,0),2)
@@ -26,7 +31,7 @@ if __name__ == '__main__':
     """
     **~Let`s CHANGE POTATE-BOY!!!~**
     """
-    uploaded_file = st.file_uploader("ここから画像を入れてね！", type=["png", "jpg"], accept_multiple_files=False)
+    uploaded_file = st.file_uploader("ここから画像を入れてね！（縦撮影）", type=["png", "jpg"], accept_multiple_files=False)
     if uploaded_file is not None:
         image = Image.open(uploaded_file)
         image = np.array(image.convert("RGB"))
