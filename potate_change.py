@@ -27,7 +27,7 @@ def face_detect_MTCNN(img):
 
 
 if __name__ == '__main__':
-    st.title("ポテト坊やに変身するぜ！！！")
+    st.title("みんなポテト坊やだよ！！！")
     """
     **~Let`s CHANGE POTATE-BOY!!!~**
     """
