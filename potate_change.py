@@ -46,7 +46,7 @@ if __name__ == '__main__':
         image = scale_to_width(image,1000)#リサイズ
         image = np.array(image.convert("RGB"))
         image = cv2.cvtColor(image, 1)
-        image = cv2.rotate(image, cv2.ROTATE_90_CLOCKWISE)
+        # image = cv2.rotate(image, cv2.ROTATE_90_CLOCKWISE)
 
         st.image(face_detect_MTCNN(image))
 
