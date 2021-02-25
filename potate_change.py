@@ -40,13 +40,22 @@ if __name__ == '__main__':
     """
     **~Let`s CHANGE POTATE-BOY!!!~**
     """
-    uploaded_file = st.file_uploader("ここから誰かの写真を撮ってね！（縦撮影）", type=["png", "jpg"], accept_multiple_files=False)
+    uploaded_file = st.file_uploader("ここから誰かの写真を撮ってね！（横長）", type=["png", "jpg"], accept_multiple_files=False)
     if uploaded_file is not None:
         image = Image.open(uploaded_file)
         image = scale_to_width(image,1000)#リサイズ
         image = np.array(image.convert("RGB"))
         image = cv2.cvtColor(image, 1)
+
+        st.image(face_detect_MTCNN(image))
         # image = cv2.rotate(image, cv2.ROTATE_90_CLOCKWISE)
+    uploaded_file_h = st.file_uploader("縦撮影はこちらから", type=["png", "jpg"], accept_multiple_files=False)
+    if uploaded_file_h is not None:
+        image = Image.open(uploaded_file_h)
+        image = scale_to_width(image, 1000)  # リサイズ
+        image = np.array(image.convert("RGB"))
+        image = cv2.cvtColor(image, 1)
+        image = cv2.rotate(image, cv2.ROTATE_90_CLOCKWISE)
 
         st.image(face_detect_MTCNN(image))
 
